@@ -10,6 +10,7 @@ module TachikomaAi
     end
 
     def pull_request
+      @pull_request_body = @pull_request_body.to_s
       @pull_request_body += "\n\n" + @strategy.pull_request_body if @strategy
       super
     end
