@@ -11,7 +11,11 @@ module TachikomaAi
 
     def pull_request
       @pull_request_body = @pull_request_body.to_s
-      @pull_request_body += "\n\n" + @strategy.pull_request_body if @strategy
+      if @strategy
+        Dir.chdir("#{Tachikoma.repos_path}/#{@build_for}") do
+          @pull_request_body += "\n\n" + @strategy.pull_request_body
+        end
+      end
       super
     end
   end

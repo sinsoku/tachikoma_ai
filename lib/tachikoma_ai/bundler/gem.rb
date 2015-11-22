@@ -5,7 +5,7 @@ module TachikomaAi
     class Gem
       STRING_PATTERN = /[-|\+]\s+(\S+)\s\((.+?)\)/
       major, minor = RUBY_VERSION.split('.')
-      GEMS_PATH = "vendor/bundle/ruby/#{major}.#{minor}.0/gems/"
+      SPECS_PATH = "vendor/bundle/ruby/#{major}.#{minor}.0/specifications/"
 
       attr_reader :name, :version
       attr_accessor :from
@@ -39,7 +39,7 @@ module TachikomaAi
       end
 
       def spec_path
-        "#{GEMS_PATH}/#{name}-#{version}/#{name}.gemspec"
+        "#{SPECS_PATH}/#{name}-#{version}.gemspec"
       end
     end
   end
