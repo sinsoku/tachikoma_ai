@@ -39,7 +39,7 @@ module TachikomaAi
       end
 
       def spec_path
-        "#{GEMS_PATH}/#{name}-#{versin}/#{name}.gemspec"
+        "#{GEMS_PATH}/#{name}-#{version}/#{name}.gemspec"
       end
     end
   end
