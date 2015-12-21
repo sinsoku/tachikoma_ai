@@ -29,7 +29,7 @@ module TachikomaAi
       end
 
       def diff
-        @diff ||= `git show --format= @`.split("\n")
+        @diff ||= `git show --format= HEAD`.split("\n")
       end
 
       def minus_gems
