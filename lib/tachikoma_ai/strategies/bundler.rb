@@ -43,7 +43,7 @@ module TachikomaAi
       end
 
       def compare_urls
-        updated_gems.select(&:github?).map(&:compare_url).join("\n")
+        updated_gems.select(&:github?).map { |gem| gem.compare_url.gsub(/http:/, 'https:') }.join("\n")
       end
 
       def homepage_urls
