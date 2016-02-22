@@ -16,6 +16,9 @@ module TachikomaAi
           @pull_request_body += "\n\n" + @strategy.pull_request_body
         end
       end
+    rescue
+      p $!
+    ensure
       super
     end
   end
