@@ -1,5 +1,6 @@
 # TachikomaAi
 
+[![Gem Version](https://badge.fury.io/rb/tachikoma_ai.svg)](https://badge.fury.io/rb/tachikoma_ai)
 [![Build Status](https://travis-ci.org/sinsoku/tachikoma_ai.svg?branch=master)](https://travis-ci.org/sinsoku/tachikoma_ai)
 [![codecov.io](https://codecov.io/github/sinsoku/tachikoma_ai/coverage.svg?branch=master)](https://codecov.io/github/sinsoku/tachikoma_ai?branch=master)
 
