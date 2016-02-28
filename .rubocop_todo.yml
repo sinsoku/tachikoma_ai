@@ -17,13 +17,6 @@ Metrics/LineLength:
   Max: 117
 
 # Offense count: 1
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: nested, compact
-Style/ClassAndModuleChildren:
-  Exclude:
-    - 'spec/tachikoma_ai/bundler/gem_spec.rb'
-
-# Offense count: 1
 # Cop supports --auto-correct.
 Style/ColonMethodCall:
   Exclude:
