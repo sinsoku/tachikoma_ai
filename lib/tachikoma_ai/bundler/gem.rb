@@ -35,7 +35,7 @@ module TachikomaAi
       private
 
       def spec
-        ::Gem::Specification::load(spec_path)
+        ::Gem::Specification.load(spec_path)
       end
 
       def spec_path

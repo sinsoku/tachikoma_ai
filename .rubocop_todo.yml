@@ -16,12 +16,6 @@ Metrics/AbcSize:
 Metrics/LineLength:
   Max: 117
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/ColonMethodCall:
-  Exclude:
-    - 'lib/tachikoma_ai/bundler/gem.rb'
-
 # Offense count: 6
 Style/Documentation:
   Exclude:
