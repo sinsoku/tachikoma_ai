@@ -4,7 +4,7 @@ module TachikomaAi
       begin
         @strategy = TachikomaAi::Strategies.const_get(strategy.capitalize).new
       rescue NameError
-        fail LoadError, "Could not find matching strategy for #{strategy}."
+        raise LoadError, "Could not find matching strategy for #{strategy}."
       end
       super
     end
@@ -17,7 +17,7 @@ module TachikomaAi
         end
       end
     rescue
-      p $!
+      p $ERROR_INFO
     ensure
       super
     end
