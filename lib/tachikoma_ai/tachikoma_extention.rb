@@ -17,7 +17,7 @@ module TachikomaAi
         end
       end
     rescue
-      p $!
+      p $ERROR_INFO
     ensure
       super
     end
