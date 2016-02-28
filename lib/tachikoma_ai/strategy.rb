@@ -5,7 +5,7 @@ module TachikomaAi
     end
 
     def pull_request_body
-      fail NotImplementedError
+      raise NotImplementedError
     end
   end
 end
