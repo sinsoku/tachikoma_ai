@@ -29,13 +29,6 @@ Style/Documentation:
 
 # Offense count: 2
 # Cop supports --auto-correct.
-Style/MutableConstant:
-  Exclude:
-    - 'lib/tachikoma_ai/bundler/gem.rb'
-    - 'lib/tachikoma_ai/version.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: only_raise, only_fail, semantic
 Style/SignalException:
