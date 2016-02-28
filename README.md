@@ -9,6 +9,8 @@ TachikomaAi is a artificial intelligence for [sanemat/tachikoma](https://github.
 
 - Append comparing urls to Pull Request
 
+![](https://raw.github.com/sinsoku/tachikoma_ai/master/screenshots/pullreq.png)
+
 ## Supported versions
 
 - Ruby 2.0, 2.1.x, 2.2.x, 2.3.x
