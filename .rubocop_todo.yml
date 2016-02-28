@@ -27,13 +27,6 @@ Style/Documentation:
     - 'lib/tachikoma_ai/strategy.rb'
     - 'lib/tachikoma_ai/tachikoma_extention.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: leading, trailing
-Style/DotPosition:
-  Enabled: false
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, UseHashRocketsWithSymbolValues.
