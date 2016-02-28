@@ -1,4 +1,11 @@
 AllCops:
   DisplayCopNames: true
 
-inherit_from: .rubocop_todo.yml
+Metrics/AbcSize:
+  Max: 17
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
