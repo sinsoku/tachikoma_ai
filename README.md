@@ -3,13 +3,23 @@
 [![Build Status](https://travis-ci.org/sinsoku/tachikoma_ai.svg?branch=master)](https://travis-ci.org/sinsoku/tachikoma_ai)
 [![codecov.io](https://codecov.io/github/sinsoku/tachikoma_ai/coverage.svg?branch=master)](https://codecov.io/github/sinsoku/tachikoma_ai?branch=master)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tachikoma_ai`. To experiment with that code, run `bin/console` for an interactive prompt.
+TachikomaAi is a artificial intelligence for [sanemat/tachikoma](https://github.com/sanemat/tachikoma).
 
-TODO: Delete this and the text above, and describe your gem
+## Features
+
+- Append comparing urls to Pull Request
+
+## Supported versions
+
+- Ruby 2.0, 2.1.x, 2.2.x, 2.3.x
+
+## Supported strategies
+
+- Bundler (Ruby)
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to Gemfile:
 
 ```ruby
 gem 'tachikoma_ai'
@@ -19,13 +29,13 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Load a TachikomaAi in `Rakefile`:
 
-    $ gem install tachikoma_ai
-
-## Usage
-
-TODO: Write usage instructions here
+```diff
+  require 'bundler/setup'
+  require 'tachikoma/tasks'
++ require 'tachikoma_ai'
+```
 
 ## Development
 
@@ -35,7 +45,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/tachikoma_ai. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sinsoku/tachikoma_ai. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
