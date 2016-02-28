@@ -34,12 +34,12 @@ module TachikomaAi
 
       def minus_gems
         @minus_gems ||= diff.select { |s| s =~ /^- {4}\S/ }
-          .map { |s| TachikomaAi::Bundler::Gem.parse(s) }
+                            .map { |s| TachikomaAi::Bundler::Gem.parse(s) }
       end
 
       def plus_gems
         @plus_gems ||= diff.select { |s| s =~ /^\+ {4}\S/ }
-          .map { |s| TachikomaAi::Bundler::Gem.parse(s) }
+                           .map { |s| TachikomaAi::Bundler::Gem.parse(s) }
       end
 
       def compare_urls

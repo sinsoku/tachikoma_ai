@@ -29,13 +29,6 @@ Style/Documentation:
 
 # Offense count: 2
 # Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
-# SupportedStyles: aligned, indented
-Style/MultilineMethodCallIndentation:
-  Enabled: false
-
-# Offense count: 2
-# Cop supports --auto-correct.
 Style/MutableConstant:
   Exclude:
     - 'lib/tachikoma_ai/bundler/gem.rb'
