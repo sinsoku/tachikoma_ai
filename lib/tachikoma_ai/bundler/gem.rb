@@ -21,7 +21,7 @@ module TachikomaAi
       end
 
       def github?
-        homepage&.include? 'github'
+        homepage && homepage.include?('github')
       end
 
       def homepage

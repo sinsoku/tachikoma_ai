@@ -13,4 +13,4 @@ module TachikomaAi
 end
 
 require 'tachikoma/application'
-Tachikoma::Application.prepend(TachikomaAi::TachikomaExtention)
+Tachikoma::Application.send :prepend, TachikomaAi::TachikomaExtention
