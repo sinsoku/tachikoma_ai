@@ -9,3 +9,4 @@ end
 
 require 'tachikoma_ai'
 require 'tachikoma_ai/strategies/bundler'
+require 'webmock/rspec'

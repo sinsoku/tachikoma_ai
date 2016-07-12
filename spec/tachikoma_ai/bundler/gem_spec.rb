@@ -19,5 +19,15 @@ module TachikomaAi
       before { allow(gem).to receive(:spec_path) { 'tachikoma_ai.gemspec' } }
       it { expect(gem).to be_github }
     end
+
+    describe '#tags' do
+      let(:gem) { Gem.new('tachikoma_ai', '0.1.0') }
+      before do
+        stub_request(:get, 'https://api.github.com/repos/sinsoku/tachikoma_ai/git/refs/tags')
+          .to_return(status: 200, body: '[{"ref":"refs/tags/v0.1.0"}]')
+        allow(gem).to receive(:spec_path) { 'tachikoma_ai.gemspec' }
+      end
+      it { expect(gem.tags).to include 'v0.1.0' }
+    end
   end
 end
