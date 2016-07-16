@@ -1,3 +1,4 @@
+require 'tachikoma_ai/repository'
 require 'tachikoma_ai/strategy'
 require 'tachikoma_ai/tachikoma_extention'
 require 'tachikoma_ai/version'

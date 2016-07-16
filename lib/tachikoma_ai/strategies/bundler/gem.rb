@@ -1,6 +1,4 @@
 require 'rubygems'
-require 'net/http'
-require 'json'
 
 module TachikomaAi
   module Bundler
@@ -31,19 +29,7 @@ module TachikomaAi
       end
 
       def compare_url
-        before_tag = tags.find { |tag| tag == "v#{from}" || tag == from }
-        after_tag = tags.find { |tag| tag == "v#{version}" || tag == version }
-        File.join homepage, 'compare', "#{before_tag}...#{after_tag}"
-      end
-
-      def tags
-        return @tags if @tags
-
-        owner, repo = URI.parse(homepage).path.split('/').drop(1)
-        url = "https://api.github.com/repos/#{owner}/#{repo}/git/refs/tags"
-        res = Net::HTTP.get_response URI.parse(url)
-        json = JSON.parse(res.body)
-        @tags = json.map { |tag| tag['ref'].gsub('refs/tags/', '') }
+        GitHub.new(homepage).compare_url(from, version)
       end
 
       private
