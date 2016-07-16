@@ -1,4 +1,4 @@
-require 'tachikoma_ai/bundler/gem'
+require 'tachikoma_ai/strategies/bundler/gem'
 
 module TachikomaAi
   module Strategies
