@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'json'
 
 module TachikomaAi
   module Bundler
@@ -6,6 +7,7 @@ module TachikomaAi
       STRING_PATTERN = /[-|\+]\s+(\S+)\s\((.+?)\)/
       major, minor = RUBY_VERSION.split('.')
       SPECS_PATH = "vendor/bundle/ruby/#{major}.#{minor}.0/specifications/".freeze
+      URLS = JSON.parse(File.read(File.expand_path('urls.json', __dir__)))
 
       attr_reader :name, :version
       attr_accessor :from
@@ -20,8 +22,16 @@ module TachikomaAi
         @version = version
       end
 
-      def github?
-        homepage && homepage.include?('github')
+      def github_url?
+        !github_url.nil?
+      end
+
+      def github_url
+        if URLS.key?(name)
+          URLS[name]
+        elsif homepage && homepage.include?('github')
+          homepage
+        end
       end
 
       def homepage
@@ -29,7 +39,7 @@ module TachikomaAi
       end
 
       def compare_url
-        GitHub.new(homepage).compare_url(from, version)
+        GitHub.new(github_url).compare_url(from, version)
       end
 
       private

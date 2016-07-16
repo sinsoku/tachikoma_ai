@@ -43,11 +43,11 @@ module TachikomaAi
       end
 
       def compare_urls
-        updated_gems.select(&:github?).map(&:compare_url).join("\n")
+        updated_gems.select(&:github_url?).map(&:compare_url).join("\n")
       end
 
       def homepage_urls
-        updated_gems.reject(&:github?).map(&:homepage).join("\n")
+        updated_gems.reject(&:github_url?).map(&:homepage).join("\n")
       end
     end
   end
