@@ -6,8 +6,8 @@ module TachikomaAi
     attr_reader :url, :owner, :repo
 
     def initialize(url)
-      @url = url
-      @owner, @repo = URI.parse(url).path.split('/').drop(1)
+      @url = url.gsub(/http:/, 'https:')
+      @owner, @repo = URI.parse(@url).path.split('/').drop(1)
     end
 
     def compare(start, endd)
