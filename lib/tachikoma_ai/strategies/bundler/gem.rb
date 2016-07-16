@@ -40,7 +40,7 @@ module TachikomaAi
         end
 
         def compare_url
-          GitHub.new(github_url).compare_url(from, version)
+          Repository.new(github_url).compare(from, version)
         end
 
         private
