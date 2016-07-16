@@ -1,3 +1,17 @@
 {
-  "sidekiq": "https://github.com/mperham/sidekiq"
+  "action_args": "https://github.com/asakusarb/action_args",
+  "airbrake": "https://github.com/airbrake/airbrake",
+  "capistrano": "https://github.com/capistrano/capistrano",
+  "coderay": "https://github.com/rubychan/coderay",
+  "concurrent-ruby": "https://github.com/ruby-concurrency/concurrent-ruby",
+  "eventmachine": "https://github.com/eventmachine/eventmachine",
+  "logging": "https://github.com/TwP/logging",
+  "nokogiri": "https://github.com/sparklemotion/nokogiri",
+  "rails_best_practices": "https://github.com/railsbp/rails_best_practices",
+  "rack-mini-profiler": "https://github.com/MiniProfiler/rack-mini-profiler",
+  "sass": "https://github.com/sass/sass",
+  "sidekiq": "https://github.com/mperham/sidekiq",
+  "thin": "https://github.com/macournoyer/thin",
+  "unicorn": "https://github.com/defunkt/unicorn",
+  "uniform_notifier": "https://github.com/flyerhzm/uniform_notifier"
 }
