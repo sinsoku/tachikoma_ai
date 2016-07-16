@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module TachikomaAi
-  module Bundler
+  class Bundler
     describe Gem do
       describe '.parse' do
         subject { Gem.parse('+    byebug (5.0.0)') }

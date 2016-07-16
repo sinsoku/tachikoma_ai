@@ -2,7 +2,7 @@ require 'rubygems'
 require 'json'
 
 module TachikomaAi
-  module Bundler
+  class Bundler
     class Gem
       STRING_PATTERN = /[-|\+]\s+(\S+)\s\((.+?)\)/
       major, minor = RUBY_VERSION.split('.')
