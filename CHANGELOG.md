@@ -1,5 +1,7 @@
 ## master (unreleased)
 
+## v0.3.0
+
 - :bug: Fix crash when specify a github repository in Gemfile
 - :sparkles: Support gems that have the official page
  - [lib/tachikoma_ai/strategies/bundler/urls.json](https://github.com/sinsoku/tachikoma_ai/blob/master/lib/tachikoma_ai/strategies/bundler/urls.json)
