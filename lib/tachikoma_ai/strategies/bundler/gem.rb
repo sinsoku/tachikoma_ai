@@ -36,7 +36,11 @@ module TachikomaAi
         end
 
         def homepage
-          @homepage ||= spec.homepage
+          @homepage ||= if spec
+                          spec.homepage
+                        else
+                          "#{name}-#{version}"
+                        end
         end
 
         def compare_url

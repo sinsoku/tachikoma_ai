@@ -11,9 +11,17 @@ module TachikomaAi
         end
 
         describe '#homepage' do
-          let(:gem) { Gem.new('tachikoma_ai', '0.1.0') }
-          before { allow(gem).to receive(:spec_path) { 'tachikoma_ai.gemspec' } }
-          it { expect(gem.homepage).to eq 'https://github.com/sinsoku/tachikoma_ai' }
+          context do
+            let(:gem) { Gem.new('tachikoma_ai', '0.1.0') }
+            before { allow(gem).to receive(:spec_path) { 'tachikoma_ai.gemspec' } }
+            it { expect(gem.homepage).to eq 'https://github.com/sinsoku/tachikoma_ai' }
+          end
+
+          context 'when specify a github repository in Gemfile' do
+            let(:gem) { Gem.new('tachikoma_ai', '0.1.0') }
+            before { allow(gem).to receive(:spec) { nil } }
+            it { expect(gem.homepage).to eq 'tachikoma_ai-0.1.0' }
+          end
         end
 
         describe '#github_url?' do
