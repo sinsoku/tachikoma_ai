@@ -28,10 +28,10 @@ module TachikomaAi
         end
 
         def github_url
-          if URLS.key?(name)
-            URLS[name]
-          elsif homepage.include?('github.com')
+          if homepage.include?('github.com')
             homepage
+          elsif URLS.key?(name)
+            URLS[name]
           end
         end
 
