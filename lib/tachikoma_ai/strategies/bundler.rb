@@ -1,4 +1,5 @@
 require 'tachikoma_ai/strategies/bundler/gem'
+require 'bundler'
 
 module TachikomaAi
   module Strategies
@@ -20,26 +21,19 @@ module TachikomaAi
       def updated_gems
         return @updated_gems if @updated_gems
 
-        names = plus_gems.map(&:name) & minus_gems.map(&:name)
-        @updated_gems = plus_gems.select { |g| names.include? g.name }
-        @updated_gems.each do |g|
-          g.from = minus_gems.find { |mg| mg.name == g.name }.version
+        previous = lockfile('HEAD^')
+        @updated_gems = diff_specs(previous, lockfile('HEAD')).map do |spec|
+          before = previous.specs.find { |s| s.name == spec.name }
+          Gem.new(spec.name, before.version.to_s, spec.version.to_s)
         end
-        @updated_gems
       end
 
-      def diff
-        @diff ||= `git show --format= HEAD`.split("\n")
+      def diff_specs(previous, current)
+        current.specs.reject { |s| previous.specs.include?(s) }
       end
 
-      def minus_gems
-        @minus_gems ||= diff.select { |s| s =~ /^- {4}\S/ }
-                            .map { |s| Gem.parse(s) }
-      end
-
-      def plus_gems
-        @plus_gems ||= diff.select { |s| s =~ /^\+ {4}\S/ }
-                           .map { |s| Gem.parse(s) }
+      def lockfile(ref)
+        ::Bundler::LockfileParser.new(`git show #{ref}:Gemfile.lock`)
       end
 
       def compare_urls

@@ -6,8 +6,11 @@ module TachikomaAi
       describe '#pull_request_body' do
         let(:bundler) { Bundler.new }
         let(:expected) { 'https://github.com/sinsoku/tachikoma_ai/compare/v0.1.0...v0.2.0' }
+        let(:previous) { ::Bundler::LockfileParser.new("GEM\n  specs:\n    tachikoma_ai (0.1.0)") }
+        let(:current) { ::Bundler::LockfileParser.new("GEM\n  specs:\n    tachikoma_ai (0.2.0)") }
+
         before do
-          allow(bundler).to receive(:diff) { ['-    tachikoma_ai (0.1.0)', '+    tachikoma_ai (0.2.0)'] }
+          allow(bundler).to receive(:lockfile).and_return(previous, current)
           allow_any_instance_of(Bundler::Gem).to receive(:spec_path) { 'tachikoma_ai.gemspec' }
           stub_request(:get, 'https://api.github.com/repos/sinsoku/tachikoma_ai/git/refs/tags')
             .to_return(status: 200, body: '[{"ref":"refs/tags/v0.1.0"}, {"ref":"refs/tags/v0.2.0"}]')

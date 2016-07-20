@@ -5,21 +5,15 @@ module TachikomaAi
   module Strategies
     class Bundler
       class Gem
-        STRING_PATTERN = /[-|\+]\s+(\S+)\s\((.+?)\)/
         major, minor = RUBY_VERSION.split('.')
         SPECS_PATH = "vendor/bundle/ruby/#{major}.#{minor}.0/specifications/".freeze
         URLS = JSON.parse(File.read(File.expand_path('urls.json', __dir__)))
 
-        attr_reader :name, :version
-        attr_accessor :from
+        attr_reader :name, :from, :version
 
-        def self.parse(s)
-          m = s.match STRING_PATTERN
-          new m[1], m[2]
-        end
-
-        def initialize(name, version)
+        def initialize(name, from, version)
           @name = name
+          @from = from
           @version = version
         end
 
