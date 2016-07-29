@@ -1,5 +1,9 @@
 ## master (unreleased)
 
+## v0.3.1
+
+- :bug: Fix an error that occurs when GitHub API returns 301
+
 ## v0.3.0
 
 - :bug: Fix crash when specify a github repository in Gemfile
