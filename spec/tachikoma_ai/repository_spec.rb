@@ -31,6 +31,15 @@ module TachikomaAi
         subject { repository.compare('0.1.0', '0.2.0') }
         it { is_expected.to eq 'https://github.com/sinsoku/tachikoma_ai/compare/v0.1.0...v0.2.0' }
       end
+
+      context 'Response: 404 Not Found' do
+        before do
+          stub_request(:get, repository.send(:api_tags_url))
+            .to_return(status: 404, body: '{"message": "Not Found"}')
+        end
+        subject { repository.compare('0.1.0', '0.2.0') }
+        it { is_expected.to eq 'https://github.com/sinsoku/tachikoma_ai/compare/...' }
+      end
     end
 
     describe 'private #find_tag' do

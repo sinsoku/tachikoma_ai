@@ -30,21 +30,22 @@ module TachikomaAi
       return @tags if @tags
 
       res = fetch(api_tags_url)
-      json = JSON.parse(res.body)
-      @tags = json.map { |tag| tag['ref'].gsub('refs/tags/', '') }
+      @tags = if res.is_a? Net::HTTPSuccess
+                json = JSON.parse(res.body)
+                json.map { |tag| tag['ref'].gsub('refs/tags/', '') }
+              else
+                {}
+              end
     end
 
     def fetch(uri_str, limit = 10)
       raise ArgumentError, 'HTTP redirect too deep' if limit.zero?
 
       response = Net::HTTP.get_response URI.parse(uri_str)
-      case response
-      when Net::HTTPSuccess
-        response
-      when Net::HTTPRedirection
+      if response.is_a? Net::HTTPRedirection
         fetch(response['location'], limit - 1)
       else
-        response.value
+        response
       end
     end
   end
