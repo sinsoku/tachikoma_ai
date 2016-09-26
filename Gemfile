@@ -5,3 +5,4 @@ gemspec
 
 gem 'codecov', require: false
 gem 'webmock'
+gem 'byebug'
