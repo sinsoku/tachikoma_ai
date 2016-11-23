@@ -1,0 +1,18 @@
+{
+  "action_args": "asakusarb/action_args",
+  "airbrake": "airbrake/airbrake",
+  "capistrano": "capistrano/capistrano",
+  "coderay": "rubychan/coderay",
+  "concurrent-ruby": "ruby-concurrency/concurrent-ruby",
+  "eventmachine": "eventmachine/eventmachine",
+  "logging": "TwP/logging",
+  "nokogiri": "sparklemotion/nokogiri",
+  "puma": "puma/puma",
+  "rails_best_practices": "railsbp/rails_best_practices",
+  "rack-mini-profiler": "MiniProfiler/rack-mini-profiler",
+  "sass": "sass/sass",
+  "sidekiq": "mperham/sidekiq",
+  "thin": "macournoyer/thin",
+  "unicorn": "defunkt/unicorn",
+  "uniform_notifier": "flyerhzm/uniform_notifier"
+}

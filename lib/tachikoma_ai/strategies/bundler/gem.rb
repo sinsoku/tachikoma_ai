@@ -7,7 +7,8 @@ module TachikomaAi
       class Gem
         major, minor = RUBY_VERSION.split('.')
         SPECS_PATH = "vendor/bundle/ruby/#{major}.#{minor}.0/specifications/".freeze
-        URLS = JSON.parse(File.read(File.expand_path('urls.json', __dir__)))
+        GITHUB_URLS = File.read(File.expand_path('github_urls.json', __dir__))
+        GITHUB_URL_JSON = JSON.parse(GITHUB_URLS)
 
         attr_reader :name, :from, :version
 
@@ -24,8 +25,8 @@ module TachikomaAi
         def github_url
           if homepage.include?('github.com')
             homepage
-          elsif URLS.key?(name)
-            URLS[name]
+          elsif GITHUB_URL_JSON.key?(name)
+            "https://github.com/#{GITHUB_URL_JSON[name]}"
           end
         end
 
