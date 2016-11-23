@@ -13,7 +13,14 @@ module TachikomaAi
     def compare(start, endd)
       s = find_tag(start)
       e = find_tag(endd)
-      "https://github.com/#{owner}/#{repo}/compare/#{s}...#{e}"
+      base = "https://github.com/#{owner}/#{repo}"
+      if s.nil? && e.nil?
+        "#{base} (tags not found)"
+      elsif e.nil?
+        "#{base}/compare/#{s}...master"
+      else
+        "#{base}/compare/#{s}...#{e}"
+      end
     end
 
     private
