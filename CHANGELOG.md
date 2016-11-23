@@ -1,5 +1,9 @@
 ## master (unreleased)
 
+## v0.4.0
+
+- :sparkles: Fix the compare url when tags not found
+
 ## v0.3.1
 
 - :bug: Fix an error that occurs when GitHub API returns 301
