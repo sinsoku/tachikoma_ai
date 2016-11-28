@@ -3,6 +3,7 @@
   "airbrake": "airbrake/airbrake",
   "capistrano": "capistrano/capistrano",
   "coderay": "rubychan/coderay",
+  "coffee-script-source": "jessedoyle/coffee-script-source",
   "concurrent-ruby": "ruby-concurrency/concurrent-ruby",
   "eventmachine": "eventmachine/eventmachine",
   "logging": "TwP/logging",
@@ -13,6 +14,7 @@
   "sass": "sass/sass",
   "sidekiq": "mperham/sidekiq",
   "thin": "macournoyer/thin",
+  "thor": "erikhuda/thor",
   "unicorn": "defunkt/unicorn",
   "uniform_notifier": "flyerhzm/uniform_notifier"
 }
