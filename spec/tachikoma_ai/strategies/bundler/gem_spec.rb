@@ -30,6 +30,12 @@ module TachikomaAi
             it { expect(gem).to be_github_url }
           end
         end
+
+        describe 'github_urls.json' do
+          it 'sort by gem name' do
+            expect(Gem::GITHUB_URL_JSON.keys).to eq Gem::GITHUB_URL_JSON.keys.sort
+          end
+        end
       end
     end
   end
