@@ -40,6 +40,8 @@ module TachikomaAi
 
         def compare_url
           Repository.new(github_url).compare(from, version)
+        rescue => e
+          "#{github_url}/compare/v#{from}...v#{version} (#{e.class} #{e})"
         end
 
         private

@@ -4,6 +4,29 @@ module TachikomaAi
   module Strategies
     class Bundler
       describe Gem do
+        describe '#compare_url' do
+          let(:gem) { Gem.new('tachikoma_ai', '0.1.0', '0.2.0') }
+          let(:repository) { Repository.new('https://github.com/sinsoku/tachikoma_ai') }
+          let(:compare_url) { 'https://github.com/sinsoku/tachikoma_ai/compare/v0.1.0...v0.2.0' }
+
+          context 'the compare url created successfully' do
+            before do
+              allow(gem).to receive(:spec_path) { 'tachikoma_ai.gemspec' }
+              stub_request(:get, repository.send(:api_tags_url))
+                .to_return(status: 200, body: '[{"ref":"refs/tags/v0.1.0"}, {"ref":"refs/tags/v0.2.0"}]')
+            end
+            it { expect(gem.compare_url).to eq compare_url }
+          end
+
+          context 'failed to create the compare url' do
+            before do
+              allow(gem).to receive(:spec_path) { 'tachikoma_ai.gemspec' }
+              allow_any_instance_of(Repository).to receive(:compare) { raise 'something' }
+            end
+            it { expect(gem.compare_url).to eq "#{compare_url} (RuntimeError something)" }
+          end
+        end
+
         describe '#homepage' do
           context do
             let(:gem) { Gem.new('tachikoma_ai', '0.1.0', '0.2.0') }
