@@ -14,7 +14,7 @@ TachikomaAi is a artificial intelligence for [sanemat/tachikoma](https://github.
 
 ## Supported versions
 
-- Ruby 2.0, 2.1.x, 2.2.x, 2.3.x
+- Ruby 2.0, 2.1.x, 2.2.x, 2.3.0, 2.4.0
 
 ## Supported strategies
 
