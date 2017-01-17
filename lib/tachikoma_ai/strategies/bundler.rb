@@ -25,7 +25,7 @@ module TachikomaAi
         @updated_gems = diff_specs(previous, lockfile('HEAD')).map do |spec|
           before = previous.specs.find { |s| s.name == spec.name }
           Gem.new(spec.name, before.version.to_s, spec.version.to_s)
-        end
+        end.uniq(&:name)
       end
 
       def diff_specs(previous, current)
