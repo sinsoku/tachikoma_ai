@@ -37,7 +37,11 @@ module TachikomaAi
       end
 
       def compare_urls
-        updated_gems.select(&:github_url?).map(&:compare_url).join("\n")
+        updated_gems.select(&:github_url?).map { |gem| url_with_checkbox(gem.compare_url) }.join("\n")
+      end
+
+      def url_with_checkbox(url)
+        "- [ ] #{url}"
       end
 
       def homepage_urls
