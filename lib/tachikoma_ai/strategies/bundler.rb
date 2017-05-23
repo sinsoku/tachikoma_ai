@@ -24,8 +24,8 @@ module TachikomaAi
         previous = lockfile('HEAD^')
         @updated_gems = diff_specs(previous, lockfile('HEAD')).map do |spec|
           before = previous.specs.find { |s| s.name == spec.name }
-          Gem.new(spec.name, before.version.to_s, spec.version.to_s)
-        end.uniq(&:name)
+          gem(spec, before)
+        end.compact.uniq(&:name)
       end
 
       def diff_specs(previous, current)
@@ -42,6 +42,11 @@ module TachikomaAi
 
       def homepage_urls
         updated_gems.reject(&:github_url?).map(&:homepage).join("\n")
+      end
+
+      def gem(spec, before)
+        return if before.nil?
+        Gem.new(spec.name, before.version.to_s, spec.version.to_s)
       end
     end
   end
