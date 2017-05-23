@@ -1,5 +1,14 @@
 ## master (unreleased)
 
+## v0.5.0
+
+- :sparkles: Sort by gem name
+- :sparkles: Summarize same gem names
+- :sparkles: Display the compare url even if an error occurs
+- :sparkles: Add checkbox for tasks
+- :bug: Fix a bug where the previous gem does not exist
+- :x: Drop support for old Ruby versions (2.0, 2.1.x, 2.2.x)
+
 ## v0.4.0
 
 - :sparkles: Fix the compare url when tags not found
