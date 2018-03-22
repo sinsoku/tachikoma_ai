@@ -13,3 +13,12 @@ Style/Documentation:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
+
+Style/RescueStandardError:
+  Enabled: false
+
+Layout/IndentHeredoc:
+  Enabled: false
+
+Naming/HeredocDelimiterNaming:
+  Enabled: false
